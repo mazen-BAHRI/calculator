@@ -6,14 +6,24 @@ import { useState } from "react";
 function App() {
   const [result, setResult] = useState(0);
   const [operation, setOperation] = useState("");
-  function newOperaion() {
-    setOperation(operation);
+  function handleClick(newValue) {
+    setOperation((preVoperation) => preVoperation + newValue);
+    if (newValue === "reset") {
+      setOperation("");
+      setResult(0);
+    } else if (newValue === "=") {
+      try {
+        setResult(eval(operation));
+      } catch (error) {
+        setResult("Error");
+      }
+    }
   }
   return (
     <>
-      <Input newOperation={operation} />
+      <Input operation={operation} />
       <Result result={result} />
-      <Numbers newOperation={newOperaion} />
+      <Numbers handleClick={handleClick} />
     </>
   );
 }

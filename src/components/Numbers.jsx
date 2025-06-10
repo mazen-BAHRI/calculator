@@ -1,142 +1,104 @@
-import { useState } from "react";
-export default function Numbers({ newOperation }) {
-  const [operation, setOperation] = useState("");
-  function newOperation() {
-    newOperation = operation;
-  }
+export default function Numbers({ handleClick }) {
   return (
     <div>
       <button
         className="buttons buttons_digits"
-        onClick={() => {
-          setOperation((prevOperation) => prevOperation + "7");
-          newOperation();
-        }}
+        onClick={() => handleClick("7")}
       >
         7
       </button>
       <button
         className="buttons buttons_digits"
-        onClick={() => {
-          setOperation((prevOperation) => prevOperation + "8");
-          newOperation();
-        }}
+        onClick={() => handleClick("8")}
       >
         8
       </button>
       <button
         className="buttons buttons_digits"
-        onClick={() => {
-          setOperation((prevOperation) => prevOperation + "9");
-          newOperation();
-        }}
+        onClick={() => handleClick("9")}
       >
         9
       </button>
       <button
         className="buttons buttons_operations"
-        onClick={() => {
-          setOperation((prevOperation) => prevOperation + "/");
-          newOperation();
-        }}
+        onClick={() => handleClick("/")}
       >
         /
       </button>
       <button
         className="buttons buttons_digits"
-        onClick={() => setOperation((prevOperation) => prevOperation + "4")}
+        onClick={() => handleClick("4")}
       >
         4
       </button>
       <button
         className="buttons buttons_digits"
-        onClick={() => setOperation((prevOperation) => prevOperation + "5")}
+        onClick={() => handleClick("5")}
       >
         5
       </button>
       <button
         className="buttons buttons_digits"
-        onClick={() => setOperation((prevOperation) => prevOperation + "6")}
+        onClick={() => handleClick("6")}
       >
         6
       </button>
       <button
         className="buttons buttons_operations"
-        onClick={() => setOperation((prevOperation) => prevOperation + "*")}
+        onClick={() => handleClick("*")}
       >
         *
       </button>
       <button
         className="buttons buttons_digits"
-        onClick={() => setOperation((prevOperation) => prevOperation + "1")}
+        onClick={() => handleClick("1")}
       >
         1
       </button>
       <button
         className="buttons buttons_digits"
-        onClick={() => setOperation((prevOperation) => prevOperation + "2")}
+        onClick={() => handleClick("2")}
       >
         2
       </button>
       <button
         className="buttons buttons_digits"
-        onClick={() => setOperation((prevOperation) => prevOperation + "3")}
+        onClick={() => handleClick("3")}
       >
         3
       </button>
       <button
         className="buttons buttons_operations"
-        onClick={() => {
-          setOperation((prevOperation) => prevOperation + "-");
-          newOperation();
-        }}
+        onClick={() => handleClick("-")}
       >
         -
       </button>
       <button
         className="buttons buttons_operations"
-        onClick={() => {
-          setOperation((prevOperation) => prevOperation + "=");
-          newOperation();
-        }}
+        onClick={() => handleClick("=")}
       >
         =
       </button>
       <button
         className="buttons buttons_digits"
-        onClick={() => {
-          setOperation((prevOperation) => prevOperation + "0");
-          newOperation();
-        }}
+        onClick={() => handleClick("0")}
       >
         0
       </button>
       <button
         className="buttons buttons_digits"
-        onClick={() => {
-          setOperation((prevOperation) => prevOperation + ".");
-          newOperation();
-        }}
+        onClick={() => handleClick(".")}
       >
         .
       </button>
       <button
         className="buttons buttons_operations"
-        onClick={() => {
-          setOperation((prevOperation) => prevOperation + "+");
-          newOperation();
-        }}
+        onClick={() => handleClick("+")}
       >
         +
       </button>
 
-      <button
-        className="buttons_reset"
-        onClick={() => {
-          setOperation("");
-          newOperation();
-        }}
-      >
+      <button className="buttons_reset" onClick={() => handleClick("reset")}>
         AC
       </button>
     </div>
